@@ -11,7 +11,9 @@ RUN set -x && \
     curl \
     tar \
     unzip \
-    build-essential
+    build-essential \
+    libgtk2.0-dev \
+    pkg-config
 #
 WORKDIR /tmp
 #
@@ -23,6 +25,14 @@ RUN set -x && \
    cmake -DOPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules -S.. && \
    make -j$(nproc) && \
    make install
+# #
+WORKDIR /
+#
+RUN set -x && \
+  git clone https://github.com/Dmitriy-Belitskiy/cv_boost_tracker && \
+  cd cv_boost_tracker && \
+  mkdir build && cd build && \
+  cmake -S.. && make \
 
 
 
