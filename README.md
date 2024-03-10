@@ -1,4 +1,4 @@
-# cv KFC tracker
+# cv KCF tracker
 
 this is simple implementation of tracker writen by chat_GPT:)
 
